@@ -1,3 +1,6 @@
+This project is to practice React. 
+I will make a youTube-like-web using YouTube API. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
