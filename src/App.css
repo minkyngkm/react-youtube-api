@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.App {
+    width: 100vw;
+}
+body{
+    background-color: #f9f9f9;
+}
+
+@media ( width > 768px ) {
+    .main {
+        display: flex;
+    }
+    .video-left {
+        width: 70%;
+    }
+    .video-right {
+        width: 30%;
+        padding: 2rem 0;
+    }
+}

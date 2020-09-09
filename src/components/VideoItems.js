@@ -1,16 +1,17 @@
 import React from 'react'
-import { Grid, Paper, Typography} from '@material-ui/core'
+import './Video.css'
 
 export default function VideoItems({ video, onVideoSelect }) {
     return (
-        <Grid>
-            <Paper style={{cursor:"pointer"}} onClick={ ()=> { onVideoSelect(video) }}>
+        <div className="video-items">
+            <div className="video-items-img">  
                 <img src={video.snippet.thumbnails.medium.url} alt="thumbnail"/>
-            </Paper>
-            <Typography variant="subtitle1">
+            </div>
+           
+            <div className="video-items-text">
                 {video.snippet.title}
-            </Typography>
+            </div>
 
-        </Grid>
+        </div>
     )
 }

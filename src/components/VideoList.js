@@ -5,6 +5,8 @@ export default function VideoList( { videos, onVideoSelect } ) {
 
     const listOfVideo = videos.map( (video, id) => <VideoItems key={id} video={video} onVideoSelect={onVideoSelect}/>)
         
-    return listOfVideo
+    return <div className="video-right">
+        {listOfVideo}
+    </div>
 }
 

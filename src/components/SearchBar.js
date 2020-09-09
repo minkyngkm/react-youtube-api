@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Paper, TextField } from '@material-ui/core';
+import './SearchBar.css'
 
 class SearchBar extends Component {
     state = {
@@ -10,21 +10,23 @@ class SearchBar extends Component {
         this.setState( { searchTerm: e.target.value })
     }
     handleSubmit= (e) => {
+        e.preventDefault()
         const { searchTerm } = this.state;
         const { onFormSubmit } =  this.props; 
 
         onFormSubmit( searchTerm );
-        e.preventDefault()
     }
-
 
     render() {
         return (
-            <Paper style={{padding: '25px'}}> 
-                <form onSubmit={this.handleSubmit}>
-                    <TextField fullWidth label="Search..." onChange={this.handleChange} />
+            <div className="search-bar-wrapper"> 
+                <form onSubmit={this.handleSubmit} >
+                    <input type="text" label="Search..." onChange={this.handleChange} className="search-bar"/>
+                    <span className="search-icon">
+                        <i className="fas fa-search"></i>
+                    </span>
                 </form>
-            </Paper>
+            </div>
             
         )
     }

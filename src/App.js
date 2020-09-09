@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid';
 import youtube from './api/youtube'
+import Header from './components/Header'
 import SeachBar from './components/SearchBar'
 import VideoDetails from './components/VideoDetails'
 import VideoList from './components/VideoList'
@@ -19,7 +19,7 @@ class App extends Component {
             //part=snippet
             part: 'snippet',
             maxResults: 5, 
-            key: [API keys],
+            key: "AIzaSyCHPJ1nrDXH5jooUoJ2tpqUKI-MAW9nC38",
             q: searchTerm
         }})
         // console.log( response )
@@ -27,24 +27,21 @@ class App extends Component {
         this.setState({videos: response.data.items, selectedVideo: response.data.items[0]})
     }
 
+    componentDidMount(){
+        this.handleSubmit("Seoul")
+    }
+    
+
     render() {
         const { selectedVideo,  videos} = this.state
         return (
-            <Grid justify="center" container spacing={1}>
-                <Grid item xs={12}>
-                    <Grid container spacing={10}>
-                        <Grid item xs={12}> 
-                            <SeachBar onFormSubmit={this.handleSubmit}/>
-                        </Grid>
-                        <Grid item xs={8}>
-                            <VideoDetails video={selectedVideo}/>
-                        </Grid>
-                        <Grid item xs={4}>
-                            <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+            <div className="App">
+                <Header> <SeachBar onFormSubmit={this.handleSubmit}/></Header>
+                <main className="main">
+                    <VideoDetails video={selectedVideo}/>
+                    <VideoList videos={videos} onVideoSelect={this.onVideoSelect}/>
+                </main>
+            </div>
         )
     }
 }

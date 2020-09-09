@@ -1,29 +1,46 @@
 import React from 'react'
-import { Paper, Typography } from '@material-ui/core'
+import './Video.css'
+function VideoDetails({ video }) {
 
-function VideoDetails( { video } ) {
-
-    if(!video) return<div> Loading... </div>  
+    if (!video) return <div className="loading"> Loading... </div>
 
     console.log(video.id.videoId)
 
     const videoSrc = `https://www.youtube.com/embed/${video.id.videoId}`
 
-   
-    return (
-        <>
-        <h1> This is from VideoDetails component </h1>
-        <Paper style={{height: "70%"}}>
-            <iframe src={videoSrc} height="100%" width="100%" title="Video Player"></iframe>
-        </Paper>
-    
 
-        <Paper stype={{padding: "15px"}}>
-            <Typography variant="h4">  {video.snippet.title}{video.snippet.channelTitle} </Typography>
-            <Typography variant="subtitle1"> {video.snippet.channelTitle} </Typography>
-            <Typography variant="subtitle2"> {video.snippet.description} </Typography>
-        </Paper>
-        </> 
+    return (
+        <div className="video-left">
+            <div className="video">
+                <iframe src={videoSrc} height="100%" width="100%" title="Video Player"></iframe>
+            </div>
+
+
+            <div className="video-info">
+                <div className="video-title">
+                    <h2>{video.snippet.title}{video.snippet.channelTitle}</h2>
+
+                    <ul className="title-contents">
+                        <li> <i className="fas fa-thumbs-up"></i> </li>
+                        <li> <i className="fas fa-thumbs-down"></i> </li>
+                        <li> <i className="fas fa-share"></i> Share </li>
+                        <li> <i className="fas fa-plus"></i> Save </li>
+                        <li> <i className="fas fa-ellipsis-h"></i></li>
+                    </ul>
+                </div>
+                <div className="subscribe">
+                    <div className="subscribe-img">
+
+                    </div>
+                    <div className="subscribe-contents">
+
+                        <div className="subscribe-info"> {video.snippet.channelTitle}</div>
+                        <div className="subscribe-description"> {video.snippet.description} </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 

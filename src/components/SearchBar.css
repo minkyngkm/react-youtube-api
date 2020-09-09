@@ -1,0 +1,13 @@
+.search-bar-wrapper {
+    width: 40vw;
+}
+.search-bar { 
+    width: 80%;
+    padding: 0.2rem .5rem;
+}
+.search-icon {
+    padding: 4px;
+}
+.header-icons i{
+    padding: 4px 8px;
+}
